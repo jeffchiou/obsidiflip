@@ -1,0 +1,108 @@
+.admonition-anki-parent {
+    display: inline-grid;
+    margin: 10px;
+    min-width: 230px;
+    max-width: 471px;
+}
+.admonition-anki:hover .admonition-anki-back {
+    transform: rotateX(0deg);
+}
+.admonition-anki:hover .admonition-anki-front {
+    transform: rotateX(180deg);
+}
+.admonition-anki-front-parent {
+    display: grid;
+    perspective: 1000px;
+    overflow: visible;
+    justify-items: center;
+}
+.admonition-anki-front, .admonition-anki-back {
+    grid-column: 1;
+    grid-row: 1;
+    padding: 0;
+    border: 0;
+    box-shadow: none !important;
+    transition: 0.5s cubic-bezier(.15, .5, .3, 1.3);
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    width: 100%;
+    background-color: transparent;
+}
+.admonition-anki-back {
+    transform: rotateX(-180deg);
+}
+.admonition-anki-front .admonition-content, .admonition-anki-back .admonition-content {
+    border: none !important;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+    text-align: center;
+}
+.admonition-anki hr {
+    width: 100%;
+}
+.admonition-anki-front .admonition-title, .admonition-anki-back .admonition-title {
+    display: none;
+}
+.admonition-anki .admonition-title-icon img {
+    border: none !important;
+}
+.admonition-cloze-parent {
+    display: inline-grid;
+    margin: 10px;
+    min-width: 230px;
+    max-width: 471px;
+}
+.admonition-cloze:hover .admonition-cloze-back {
+    opacity: 1;
+}
+.admonition-cloze:hover mark {
+    color: var(--md-color-highlight-text);
+    background-color: var(--md-color-highlight-bg);
+}
+.admonition-cloze-front-parent {
+    display: flex;
+    overflow: visible;
+    justify-items: center;
+    flex-direction: column;
+}
+.admonition-cloze-front-parent .admonition-content-copy {
+    z-index: 1;
+}
+.admonition-cloze-front, .admonition-cloze-back {
+    padding: 0;
+    border: 0;
+    margin: 0 !important;
+    box-shadow: none !important;
+    width: 100%;
+    background-color: transparent;
+}
+.admonition-cloze-back {
+    opacity: 0;
+    transition: opacity 1s;
+}
+.admonition-cloze mark {
+    background-color: var(--text-normal);
+    color: var(--text-normal);
+    transition: color 1s, background-color 1s;
+}
+.admonition-cloze-front .admonition-content, .admonition-cloze-back .admonition-content {
+    border: none !important;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+    text-align: center;
+}
+.admonition-cloze hr {
+    width: 100%;
+}
+.admonition-cloze-front .admonition-title, .admonition-cloze-back .admonition-title, .admonition-cloze-front .admonition-content-copy, .admonition-cloze-back .admonition-content-copy {
+    display: none;
+}
+.admonition-cloze .admonition-title-icon img {
+    border: none !important;
+}
