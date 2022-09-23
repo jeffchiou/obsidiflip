@@ -1,6 +1,11 @@
 
 ![Obsidiflip Banner Black Gold Neuron Flashcards](assets/black-gold-neuron-flashcards_stable-diffusion.png)[^1]
 
+# Obsidiflip Readme
+
+Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugins.
+**Current status:** WIP - Creating demo. Instructions mostly done.
+
 - [Demo](#demo)
 - [Prerequisites](#prerequisites)
 - [Installation and Usage](#installation-and-usage)
@@ -23,11 +28,6 @@
 	- [Note type not showing](#note-type-not-showing)
 	- [Wrong field order](#wrong-field-order)
 
-# Obsidiflip Readme
-
-Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugins.
-Current status: WIP - writing instructions and demo.
-
 ## Demo
 
 ## Prerequisites
@@ -45,6 +45,7 @@ Please have these apps and plugins installed and working.
 ### Admonition Plugin Settings
 
 In the admonition plugin settings, please add these 6 admonition types. Feel free to customize the title, title display option, copy button, icon, and color, but don't change the admonition type unless you plan to modify the CSS and regex.
+
 ![Obsidiflip Admonition Types](assets/obsidiflip_admonition-types.png)
 
 | Flip Card    | Fade Card     |
