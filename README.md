@@ -42,32 +42,125 @@ In the admonition plugin settings, please add these 6 admonition types. Feel fre
 3. Save `obsidiflip.css` to your snippets folder, refresh the CSS settings, and enable it.
 
 ### Obsidian to Anki Plugin Settings
+
+#### Cloze settings
+
+##### Highlight option
+1. Enable the CurlyCloze option.
+2. Enable the Curlycloze -> Highlights to Clozes option.
+- Clozes must be in the highlight syntax for the fade cloze cards to work properly. This unfortunately means no support for cloze field numbering.
+
+##### Uglier, but more flexible option
+This enables cloze numbering, but will highlight all clozes in Anki and will look messier in Obsidian.
+1. Enable the CurlyCloze option.
+2. Format clozes like this `=={1:cloze text}==` while making sure the Curlycloze -> Highlights to Clozes option is **disabled** (since the CSS relies on the highlight for fading in and out).
+   1. Please refer to the [CurlyCloze documentation](https://github.com/Pseudonium/Obsidian_to_Anki/wiki/Cloze-formatting) for formatting options
+
+- If you want to use an element other than ==highlights== such as _italics_ or **bold**, you have to edit the CSS. Look for replacing the `mark` tag.
+
+
 #### Regex and corresponding sample flashcards
-##### Revealed Context
-I use this when I want to reveal context on the back of the card.
+
+[Skip to next section](#modding-the-plugin-to-support-images)
+[Skip to cloze cards](#cloze)
+
+Please let me know in github issues if any of the regex isn't working properly or has compatibility issues.
+
+##### General Principles
+
+1. Please use a text expander like [espanso](https://espanso.org/) (and set `force_clipboard: true`)! Typing the templates in manually is slow.
+2. Flip cards always contain `ad-anki-front` and `ad-anki-back`
+3. I use horizontal rules with asterisks (`***`) to separate fields on the same card face. Horizontal rules with dashes will unintentionally create h2 headings.
+4. Card types are identified by a comment on its own line after `ad-anki` and before `ad-anki-front`. Ex. `%%anki-forward%%`
+   1. Admonition plugin options, like title, can be set before this comment
+5. Field order in Anki must be the same as the regex capture group order. See [Field Order Troubleshooting](#wrong-field-order) for details.
+
+##### Forward (Basic)
+
+This is a basic card with only front and back fields
+
 ###### Markdown
+
 ``````
 `````ad-anki
-%%anki-revealed-context%%
+%%anki-forward%%
+
 ````ad-anki-front
-front
+Front
 ````
+
 ````ad-anki-back
-back
-***
-revealed
+Back
 ````
 `````
 ``````
 
 ###### Regex
-```
+
+``````
+`````ad-anki[\s\S]+?%%anki-forward%%[\s\S]+?````ad-anki-front\n([\s\S]*?)````[\s\S]+?````ad-anki-back\n([\s\S]*?)````
+``````
+
+
+##### Revealed Context
+
+This is a personal forward and reversed card. It shows revealed context on the back of the card (such as sentences in a foreign language) in both forward and reversed mode.
+
+###### Markdown
+``````
+`````ad-anki
+%%anki-revealed-context%%
+
+````ad-anki-front
+Front
+````
+
+````ad-anki-back
+Back
+***
+Revealed Context
+````
+`````
+``````
+
+###### Regex
+``````
 `````ad-anki[\s\S]+?%%anki-revealed-context%%[\s\S]+?````ad-anki-front\n([\s\S]*?)````[\s\S]+?````ad-anki-back\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?````
-```
+``````
+
+##### Basic Anking
+
+On request by reddit user [opendoorz](https://old.reddit.com/user/openingdoorz).
+
+###### Markdown
+``````
+`````ad-anki
+%%anki-basic-anking%%
+
+````ad-anki-front
+front
+````
+
+````ad-anki-back
+back
+***
+personal notes
+***
+missed questions
+````
+
+`````
+``````
+
+###### Regex
+
+``````
+`````ad-anki[\s\S]+?%%anki-basic-anking%%[\s\S]+?````ad-anki-front\n([\s\S]*?)````[\s\S]+?````ad-anki-back\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?(?:\*\*\*\n([\s\S]*?))?````
+``````
 
 ##### Complex
 
-I don't actually use this card. It's for demo purposes to show the flexibility of the format. The last `***` is necessary to avoid keep the id within `ad-anki` and allow for flashcards next to each other.
+I don't actually use this card. It's for demo purposes to show the flexibility of the format. The last `***` is necessary to  keep the id within `ad-anki` and allow for flashcards appearing next to each other.
 
 ###### Markdown
 
@@ -90,34 +183,63 @@ this context should show up on the back of the card
 this shows up on both sides
 ***
 `````
+``````
+
+###### Regex
 
 ``````
-###### Regex
-```
 `````ad-anki[\s\S]+?%%anki-complex%%[\s\S]+?````ad-anki-front\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?````[\s\S]+?````ad-anki-back\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?````\n([\s\S]*?)\*\*\*\n
-```
-##### Forward (Basic)
-```
-`````ad-anki[\s\S]+?%%anki-forward%%[\s\S]+?````ad-anki-front\n([\s\S]*?)````[\s\S]+?````ad-anki-back\n([\s\S]*?)````
-```
+``````
 
+##### Cloze
 
+A basic cloze card with some context
 
+###### Markdown
+``````
+`````ad-cloze
+%%anki-cloze%%
 
-`````ad-anki
-%%anki-basic-anking%%
-````ad-anki-front
-front
+````ad-cloze-front
+This is a ==cloze== card
 ````
-````ad-anki-back
-back
-***
-personal notes
-***
-missed questions
+
+````ad-cloze-back
+Here is some extra context
 ````
 `````
+``````
 
+###### Regex
+
+``````
+`````ad-cloze[\s\S]+?%%anki-cloze%%[\s\S]+?````ad-cloze-front\n([\s\S]*?)````[\s\S]+?````ad-cloze-back\n([\s\S]*?)````\n
+``````
+
+##### Cloze Write
+
+My custom cloze card with a question field, and you type in the answers.
+
+###### Markdown
+``````
+`````ad-cloze
+%%anki-cloze-write%%
+````ad-cloze-front
+Write your question here
+***
+This is a ==cloze== card with ==two== fields.
+````
+````ad-cloze-back
+Here is some extra context
+````
+`````
+``````
+
+###### Regex
+
+``````
+^`````ad-cloze$[\s\S]+?^%%anki-cloze-write%%$[\s\S]+?^````ad-cloze-front$\n([\s\S]*?)\*\*\*\n([\s\S]*?)^````$[\s\S]+?^````ad-cloze-back$\n([\s\S]*?)^````$\n
+``````
 
 #### Modding the plugin to support images
 
@@ -156,7 +278,18 @@ I have plans to mod the plugin further but it is GPL licensed and this repo is M
 
 ## Troubleshooting
 
+### Note type not showing
+
 If your note type isn't showing under the obsidian to anki plugin settings, you have to either uninstall and reinstall the plugin, add the note types manually, or mod the plugin using [this commit](https://github.com/Pseudonium/Obsidian_to_Anki/pull/301). See [this issue](https://github.com/Pseudonium/Obsidian_to_Anki/issues/252) for details.
+
+### Wrong field order
+
+If your fields aren't in the right order, do this:
+1. Close Obsidian
+2. Reposition the fields in Anki with Tools -> Manage Note Types -> Fields -> Reposition. This requires a deck re-sync.
+3. In the Obsidian-to-Anki plugin folder, look at `data.json` and the `fields_dict` section. Reorder the fields here for your note type and save and close.
+4. Reopen Obsidian and do an Obsidian-to-Anki sync.
+5. Reopen `data.json` and double check the field order is correct.
 
 [^1]: Generated by Stable Diffusion locally on my laptop RTX 3080, which has 16gb of VRAM! Prompt was a variant of "thin shiny sharp black obsidian flashcards with shiny gold neurons on the front."
 
