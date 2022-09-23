@@ -1,6 +1,28 @@
 
 ![Obsidiflip Banner Black Gold Neuron Flashcards](assets/black-gold-neuron-flashcards_stable-diffusion.png)[^1]
 
+- [Demo](#demo)
+- [Prerequisites](#prerequisites)
+- [Installation and Usage](#installation-and-usage)
+	- [Admonition Plugin Settings](#admonition-plugin-settings)
+	- [CSS](#css)
+	- [Obsidian to Anki Plugin Settings](#obsidian-to-anki-plugin-settings)
+		- [Cloze settings](#cloze-settings)
+			- [Highlight option](#highlight-option)
+			- [Uglier, but more flexible option](#uglier-but-more-flexible-option)
+		- [Regex and corresponding sample flashcards](#regex-and-corresponding-sample-flashcards)
+			- [General Principles](#general-principles)
+			- [Forward (Basic)](#forward-basic)
+			- [Revealed Context](#revealed-context)
+			- [Basic Anking](#basic-anking)
+			- [Complex](#complex)
+			- [Cloze](#cloze)
+			- [Cloze Write](#cloze-write)
+		- [Modding the plugin to support images](#modding-the-plugin-to-support-images)
+- [Troubleshooting](#troubleshooting)
+	- [Note type not showing](#note-type-not-showing)
+	- [Wrong field order](#wrong-field-order)
+
 # Obsidiflip Readme
 
 Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugins.
@@ -38,7 +60,9 @@ In the admonition plugin settings, please add these 6 admonition types. Feel fre
 
 1. Go to Settings -> Appearance -> CSS Snippets and open your CSS Snippet folder.
 2. Click `obsidiflip.css` in this repository, right click raw, and save as
+   
 ![Save Github Single File](assets/save-github-single-file.png)
+
 3. Save `obsidiflip.css` to your snippets folder, refresh the CSS settings, and enable it.
 
 ### Obsidian to Anki Plugin Settings
@@ -56,12 +80,13 @@ This enables cloze numbering, but will highlight all clozes in Anki and will loo
 2. Format clozes like this `=={1:cloze text}==` while making sure the Curlycloze -> Highlights to Clozes option is **disabled** (since the CSS relies on the highlight for fading in and out).
    1. Please refer to the [CurlyCloze documentation](https://github.com/Pseudonium/Obsidian_to_Anki/wiki/Cloze-formatting) for formatting options
 
-- If you want to use an element other than ==highlights== such as _italics_ or **bold**, you have to edit the CSS. Look for replacing the `mark` tag.
+- If you want to use an element other than highlights such as _italics_ or **bold**, you have to edit the CSS. Look for replacing the `mark` tag.
 
 
 #### Regex and corresponding sample flashcards
 
 [Skip to next section](#modding-the-plugin-to-support-images)
+
 [Skip to cloze cards](#cloze)
 
 Please let me know in github issues if any of the regex isn't working properly or has compatibility issues.
