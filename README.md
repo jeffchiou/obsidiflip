@@ -54,6 +54,7 @@ Please have these apps and plugins installed and working.
 	- [Obsidian to Anki](https://github.com/Pseudonium/Obsidian_to_Anki)
 		- Requires Anki plugin [Anki Connect](https://ankiweb.net/shared/info/2055492159)
 	- [Obsidian Admonition](https://github.com/valentine195/obsidian-admonition)
+- Highly recommended: a text expander like [espanso](https://espanso.org/)
 
 ## Installation and Usage
 
