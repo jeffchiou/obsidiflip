@@ -31,8 +31,9 @@ Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugin
 
 ## Demo
 
-https://user-images.githubusercontent.com/47987424/192072673-1e385f7c-cc1b-479c-b805-4f15c49d2836.mp4
-
+<video src="https://user-images.githubusercontent.com/47987424/192072673-1e385f7c-cc1b-479c-b805-4f15c49d2836.mp4" controls autoplay loop muted >
+  Your browser does not support the video tag. See `assets/obsidiflip-demo.mp4`.
+</video>
 
 ## Prerequisites
 
