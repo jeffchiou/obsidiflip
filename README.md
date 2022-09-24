@@ -1,34 +1,34 @@
 
 ![Obsidiflip Banner Black Gold Neuron Flashcards](assets/black-gold-neuron-flashcards_stable-diffusion.png)[^1]
 
-# Obsidiflip Readme
+# 🃏 Obsidiflip Readme
 
 Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugins.
 
-## Features
+## 📜 Features
 - Works in Live Preview and reading mode.
 - Multi-line fields and custom note types supported.
 - Cloze supported, with optional tradeoff of cleanliness for cloze numbering.
 - Multiple flashcards arranged in a row in reading mode. Customizable min and max width.
 
-## Demo
+## 🎥 Demo
 <video src="https://user-images.githubusercontent.com/47987424/192072673-1e385f7c-cc1b-479c-b805-4f15c49d2836.mp4" controls autoplay loop muted >
   Your browser does not support the video tag. See `assets/obsidiflip-demo.mp4`.
 </video>
 
-## Table of Contents
-- [Features](#features)
-- [Demo](#demo)
-- [Table of Contents](#table-of-contents)
-- [Prerequisites](#prerequisites)
-- [Installation and Usage](#installation-and-usage)
-  - [Admonition Plugin Settings](#admonition-plugin-settings)
-  - [CSS](#css)
-  - [Obsidian to Anki Plugin Settings](#obsidian-to-anki-plugin-settings)
+## 📑 Table of Contents
+- [📜 Features](#-features)
+- [🎥 Demo](#-demo)
+- [📑 Table of Contents](#-table-of-contents)
+- [💿 Prerequisites](#-prerequisites)
+- [🧑‍💻 Installation and Usage](#-installation-and-usage)
+  - [📞 Admonition Plugin Settings](#-admonition-plugin-settings)
+  - [🪟 CSS](#-css)
+  - [🪨 Obsidian to Anki Plugin Settings](#-obsidian-to-anki-plugin-settings)
     - [Cloze settings](#cloze-settings)
       - [Highlight option](#highlight-option)
       - [Uglier, but more flexible option](#uglier-but-more-flexible-option)
-    - [Regex and corresponding sample flashcards](#regex-and-corresponding-sample-flashcards)
+    - [🎴 Regex and corresponding sample flashcards](#-regex-and-corresponding-sample-flashcards)
       - [General Principles](#general-principles)
       - [Forward (Basic)](#forward-basic)
       - [Revealed Context](#revealed-context)
@@ -36,16 +36,16 @@ Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugin
       - [Complex](#complex)
       - [Cloze](#cloze)
       - [Cloze Write](#cloze-write)
-    - [Modding the plugin to support images](#modding-the-plugin-to-support-images)
-- [Customization](#customization)
+    - [🖼️ Modding the plugin to support images](#️-modding-the-plugin-to-support-images)
+- [🎨 Customization](#-customization)
   - [Custom card types](#custom-card-types)
   - [Card width](#card-width)
   - [Show front and back admonition title bar](#show-front-and-back-admonition-title-bar)
-- [Troubleshooting](#troubleshooting)
+- [💥 Troubleshooting](#-troubleshooting)
   - [Note type not showing](#note-type-not-showing)
   - [Wrong field order](#wrong-field-order)
 
-## Prerequisites
+## 💿 Prerequisites
 
 Please have these apps and plugins installed and working.
 - [Obsidian](https://obsidian.md/)
@@ -56,9 +56,9 @@ Please have these apps and plugins installed and working.
 	- [Obsidian Admonition](https://github.com/valentine195/obsidian-admonition)
 - Highly recommended: a text expander like [espanso](https://espanso.org/)
 
-## Installation and Usage
+## 🧑‍💻 Installation and Usage
 
-### Admonition Plugin Settings
+### 📞 Admonition Plugin Settings
 
 In the admonition plugin settings, please add these 6 admonition types. Feel free to customize the title, title display option, copy button, icon, and color, but don't change the admonition type unless you plan to modify the CSS and regex.
 
@@ -73,7 +73,7 @@ In the admonition plugin settings, please add these 6 admonition types. Feel fre
 
 ![Obsidiflip Admonition Type Settings](assets/obsidiflip_admonition-type-settings.png)
 
-### CSS
+### 🪟 CSS
 
 1. Go to Settings -> Appearance -> CSS Snippets and open your CSS Snippet folder.
 2. Click `obsidiflip.css` in this repository, right click raw, and save as
@@ -82,7 +82,7 @@ In the admonition plugin settings, please add these 6 admonition types. Feel fre
 
 3. Save `obsidiflip.css` to your snippets folder, refresh the CSS settings, and enable it.
 
-### Obsidian to Anki Plugin Settings
+### 🪨 Obsidian to Anki Plugin Settings
 
 #### Cloze settings
 
@@ -100,7 +100,7 @@ This enables cloze numbering, but will highlight all clozes in Anki and will loo
 - If you want to use an element other than highlights such as _italics_ or **bold**, you have to edit the CSS. Look for replacing the `mark` tag.
 
 
-#### Regex and corresponding sample flashcards
+#### 🎴 Regex and corresponding sample flashcards
 
 [Skip to next section](#modding-the-plugin-to-support-images)
 
@@ -283,7 +283,7 @@ Here is some extra context
 ^`````ad-cloze$[\s\S]+?^%%anki-cloze-write%%$[\s\S]+?^````ad-cloze-front$\n([\s\S]*?)\*\*\*\n([\s\S]*?)^````$[\s\S]+?^````ad-cloze-back$\n([\s\S]*?)^````$\n
 ``````
 
-#### Modding the plugin to support images
+#### 🖼️ Modding the plugin to support images
 
 Unfortunately the Obsidian to Anki plugin hasn't seen any updates in a while, so we need to edit it to support images ([see this issue](https://github.com/Pseudonium/Obsidian_to_Anki/issues/245)). Open `main.js` in your favorite editor, and comment out the `getAndFormatMedias` function (as backup). Add this right under it:
 
@@ -318,7 +318,7 @@ Unfortunately the Obsidian to Anki plugin hasn't seen any updates in a while, so
 
 I have plans to mod the plugin further but it is GPL licensed and this repo is MIT, so I might make a new repo so I can include a `main.js` file.[^2]
 
-## Customization
+## 🎨 Customization
 
 ### Custom card types
 
@@ -359,7 +359,7 @@ If you like this aesthetic better you can comment out / remove these lines from 
 }
 ```
 
-## Troubleshooting
+## 💥 Troubleshooting
 
 ### Note type not showing
 
