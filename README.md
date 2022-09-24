@@ -19,6 +19,7 @@ Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugin
 ## Table of Contents
 - [Features](#features)
 - [Demo](#demo)
+- [Table of Contents](#table-of-contents)
 - [Prerequisites](#prerequisites)
 - [Installation and Usage](#installation-and-usage)
   - [Admonition Plugin Settings](#admonition-plugin-settings)
@@ -37,6 +38,9 @@ Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugin
       - [Cloze Write](#cloze-write)
     - [Modding the plugin to support images](#modding-the-plugin-to-support-images)
 - [Customization](#customization)
+  - [Custom card types](#custom-card-types)
+  - [Card width](#card-width)
+  - [Show front and back admonition title bar](#show-front-and-back-admonition-title-bar)
 - [Troubleshooting](#troubleshooting)
   - [Note type not showing](#note-type-not-showing)
   - [Wrong field order](#wrong-field-order)
@@ -315,8 +319,12 @@ I have plans to mod the plugin further but it is GPL licensed and this repo is M
 
 ## Customization
 
+### Custom card types
+
 See the [General Principles](#general-principles) section for custom card types.
 
+
+### Card width
 If you want to see more or fewer flashcards next to each other you can either adjust your readable line length or the min width and max width here:
 ```css
 .admonition-anki-parent {
@@ -328,6 +336,27 @@ If you want to see more or fewer flashcards next to each other you can either ad
 ```
 
 See [this custom line length CSS](https://old.reddit.com/r/ObsidianMD/comments/s55zcw/how_to_have_a_custom_line_width/inkkqop/) from [knappsacks](https://old.reddit.com/user/knappsacks). Readable line length needs to be enabled.
+
+### Show front and back admonition title bar
+
+![Keep Front Back Titlebar](assets/obsidiflip_keep-front-back-titlebar.png)
+
+If you like this aesthetic better you can comment out / remove these lines from the css:
+```css
+.admonition-anki-front, .admonition-anki-back {
+    padding: 0;
+    border: 0;
+    box-shadow: none !important;
+}
+
+.admonition-anki-front .admonition-content, .admonition-anki-back .admonition-content {
+    border: none !important;
+    padding: 0;
+}
+.admonition-anki-front .admonition-title, .admonition-anki-back .admonition-title {
+    display: none;
+}
+```
 
 ## Troubleshooting
 
