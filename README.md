@@ -4,8 +4,20 @@
 # Obsidiflip Readme
 
 Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugins.
-**Current status:** WIP - Creating demo. Instructions mostly done.
 
+## Features
+- Works in Live Preview and reading mode.
+- Multi-line fields and custom note types supported.
+- Cloze supported, with optional tradeoff of cleanliness for cloze numbering.
+- Multiple flashcards arranged in a row in reading mode. Customizable min and max width.
+
+## Demo
+<video src="https://user-images.githubusercontent.com/47987424/192072673-1e385f7c-cc1b-479c-b805-4f15c49d2836.mp4" controls autoplay loop muted >
+  Your browser does not support the video tag. See `assets/obsidiflip-demo.mp4`.
+</video>
+
+## Table of Contents
+- [Features](#features)
 - [Demo](#demo)
 - [Prerequisites](#prerequisites)
 - [Installation and Usage](#installation-and-usage)
@@ -28,12 +40,6 @@ Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugin
 - [Troubleshooting](#troubleshooting)
   - [Note type not showing](#note-type-not-showing)
   - [Wrong field order](#wrong-field-order)
-
-## Demo
-
-<video src="https://user-images.githubusercontent.com/47987424/192072673-1e385f7c-cc1b-479c-b805-4f15c49d2836.mp4" controls autoplay loop muted >
-  Your browser does not support the video tag. See `assets/obsidiflip-demo.mp4`.
-</video>
 
 ## Prerequisites
 
