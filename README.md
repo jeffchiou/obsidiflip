@@ -16,9 +16,14 @@ Interactive Obsidian-Anki flashcards that flip and fade using CSS and two plugin
   Your browser does not support the video tag. See `assets/obsidiflip-demo.mp4`.
 </video>
 
+## Recent Changes
+
+2022-09-30: Updated regex, added [link to patched plugin](https://github.com/jeffchiou/obsidian-to-anki-patched/)
+
 ## 📑 Table of Contents
 - [📜 Features](#-features)
 - [🎥 Demo](#-demo)
+- [Recent Changes](#recent-changes)
 - [📑 Table of Contents](#-table-of-contents)
 - [💿 Prerequisites](#-prerequisites)
 - [🧑‍💻 Installation and Usage](#-installation-and-usage)
@@ -57,6 +62,8 @@ Please have these apps and plugins installed and working.
 		- Requires Anki plugin [Anki Connect](https://ankiweb.net/shared/info/2055492159)
 	- [Obsidian Admonition](https://github.com/valentine195/obsidian-admonition)
 - Highly recommended: a text expander like [espanso](https://espanso.org/)
+- If you don't want to manually patch the plugin, I have patched the plugin [here](https://github.com/jeffchiou/obsidian-to-anki-patched/)
+  - Please download `main.js` from the releases tab [here](https://github.com/jeffchiou/obsidian-to-anki-patched/releases)
 
 ## 🧑‍💻 Installation and Usage
 
@@ -142,7 +149,7 @@ Back
 ###### Regex
 
 ``````
-`````ad-anki[\s\S]+?%%anki-forward%%[\s\S]+?````ad-anki-front\n([\s\S]*?)````[\s\S]+?````ad-anki-back\n([\s\S]*?)````
+%%anki-forward%%[\s\S]+?````ad-anki-front\n([\s\S]*?)````[\s\S]+?````ad-anki-back\n([\s\S]*?)````
 ``````
 
 
@@ -169,7 +176,7 @@ Revealed Context
 
 ###### Regex
 ``````
-^`````ad-anki$[\s\S]+?^%%anki-revealed-context%%$[\s\S]+?^````ad-anki-front$\n([\s\S]*?)^````$[\s\S]+?^````ad-anki-back$\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?^````$\n
+%%anki-revealed-context%%$[\s\S]+?^````ad-anki-front$\n([\s\S]*?)^````$[\s\S]+?^````ad-anki-back$\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?^````$\n
 ``````
 
 ##### Basic Anking
@@ -199,7 +206,7 @@ missed questions
 ###### Regex
 
 ``````
-`````ad-anki[\s\S]+?%%anki-basic-anking%%[\s\S]+?````ad-anki-front\n([\s\S]*?)````[\s\S]+?````ad-anki-back\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?(?:\*\*\*\n([\s\S]*?))?````
+%%anki-basic-anking%%[\s\S]+?````ad-anki-front\n([\s\S]*?)````[\s\S]+?````ad-anki-back\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?(?:\*\*\*\n([\s\S]*?))?````
 ``````
 
 ##### Complex
@@ -232,7 +239,7 @@ this shows up on both sides
 ###### Regex
 
 ``````
-`````ad-anki[\s\S]+?%%anki-complex%%[\s\S]+?````ad-anki-front\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?````[\s\S]+?````ad-anki-back\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?````\n([\s\S]*?)\*\*\*\n
+%%anki-complex%%[\s\S]+?````ad-anki-front\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?````[\s\S]+?````ad-anki-back\n([\s\S]*?)(?:\*\*\*\n([\s\S]*?))?````\n([\s\S]*?)\*\*\*\n
 ``````
 
 ##### Cloze
@@ -257,7 +264,7 @@ Here is some extra context
 ###### Regex
 
 ``````
-`````ad-cloze[\s\S]+?%%anki-cloze%%[\s\S]+?````ad-cloze-front\n([\s\S]*?)````[\s\S]+?````ad-cloze-back\n([\s\S]*?)````\n
+%%anki-cloze%%[\s\S]+?````ad-cloze-front\n([\s\S]*?)````[\s\S]+?````ad-cloze-back\n([\s\S]*?)````\n
 ``````
 
 ##### Cloze Write
@@ -282,7 +289,7 @@ Here is some extra context
 ###### Regex
 
 ``````
-^`````ad-cloze$[\s\S]+?^%%anki-cloze-write%%$[\s\S]+?^````ad-cloze-front$\n([\s\S]*?)\*\*\*\n([\s\S]*?)^````$[\s\S]+?^````ad-cloze-back$\n([\s\S]*?)^````$\n
+^%%anki-cloze-write%%$[\s\S]+?^````ad-cloze-front$\n([\s\S]*?)\*\*\*\n([\s\S]*?)^````$[\s\S]+?^````ad-cloze-back$\n([\s\S]*?)^````$\n
 ``````
 
 #### 🖼️ Modding the plugin to support images
